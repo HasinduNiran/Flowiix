@@ -53,7 +53,7 @@ const Navigationbar = () => {
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className={` ${
-          isScrolled ? "bg-secoundary" : "bg-secoundary mx-30 rounded-4xl mt-8"
+          isScrolled ? "bg-secoundary" : "bg-secoundary  mx-30 rounded-4xl mt-8"
         }`}
       >
         <div className="flex justify-between items-center p-4 px-6 md:px-10">
