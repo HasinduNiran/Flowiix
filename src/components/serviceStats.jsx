@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ServiceStats() {
   return (
-    <div className="bg-black min-h-screen flex items-center justify-center p-6">
+    <div className=" bg-black min-h-screen flex items-center justify-center p-6">
       <div className="w-full max-w-6xl">
         <div className="flex flex-col items-center justify-center ">
           <div className="bg-white w-[1048px] h-[225px] rounded-xl shadow-lg p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 z-20">
