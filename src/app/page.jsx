@@ -1,9 +1,11 @@
+import HeroSection from "../components/HeroSection";
+import Navbar from "../components/Navbar";
+
 export default function Home() {
   return (
-    <div className="">
-      <h2 className="text-center bg-secoundary font-extrabold text-5xl bg-">
-        Font Test
-      </h2>
+    <div className="bg-primary w-screen pt-10">
+      <Navbar />
+      <HeroSection />
     </div>
   );
 }
