@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import Lottie from "lottie-react";
-import { motion, useScroll, useTransform } from "framer-motion";
 
 const ServiceCard = ({ title, otherDescription }) => {
   return (
