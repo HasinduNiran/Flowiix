@@ -6,6 +6,7 @@ import { throttle } from "lodash";
 import React, { useState, useEffect } from "react";
 import { TimelineDemo } from "../components/StepsSection";
 import { HeroParallaxDemo } from "../components/OurWorksSection";
+import ServicesSection from "../components/ServicesSection";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,6 +22,7 @@ export default function Home() {
     <div className="bg-primary w-screen items-center justify-center">
       <Navbar isScrolled={isScrolled} />
       <HeroSection />
+      <ServicesSection />
       <TimelineDemo />
       <div className="pb-20">
         <HeroParallaxDemo />

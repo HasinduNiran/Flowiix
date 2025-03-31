@@ -43,7 +43,7 @@ const HeroSection = () => {
       <div className="relative flex flex-col lg:grid lg:grid-cols-2 px-4 sm:px-6 md:px-8 lg:px-10">
         {/* Left Text Section */}
         <div className="z-10 lg:ml-24 mt-32 lg:mt-40 w-full max-w-2xl mx-auto lg:mx-0 px-4 sm:px-0">
-          <h2 className="text-white font-semibold text-4xl sm:text-5xl lg:text-6xl leading-tight">
+          <h2 className="text-white font-semibold text-4xl sm:text-5xl lg:text-7xl leading-tight mt-10">
             Find the project you love
           </h2>
           <p className="text-white mt-6 lg:mt-8 text-sm sm:text-base">
@@ -59,9 +59,9 @@ const HeroSection = () => {
 
         {/* Right Image */}
         <motion.img
-          className="absolute top-1/2 
+          className="absolute top-1/3 
          lg:translate-x-6/6 opacity-80 lg:-translate-y-2/5
-        w-[90vw] sm:w-[80vw] lg:w-[70vw] max-w-[1100px] h-auto"
+        w-[90vw] sm:w-[80vw] max-w-[1050px] h-auto"
           src="/asset/images/flat-ring.png"
           alt="Rotating"
           animate={{ rotate: 360 }}
@@ -69,8 +69,7 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* ✅ Move ServiceStats Higher */}
-      <div className=" ">
+      <div className="-mt-16 ">
         <ServiceStats />
       </div>
 
