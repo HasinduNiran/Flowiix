@@ -20,22 +20,8 @@ const linkHoverVariants = {
   hovered: { y: 0 },
 };
 
-const Navigationbar = () => {
+const Navigationbar = ({ isScrolled }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <motion.nav
