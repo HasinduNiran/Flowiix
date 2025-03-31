@@ -13,3 +13,17 @@
   --color-text-black: rgba(0, 0, 0, 1);
   --color-footer: rgba(0, 0, 0, 1);
 }
+
+@layer utilities {
+  /* Custom CSS for the card flip effect */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}

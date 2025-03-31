@@ -4,9 +4,9 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "HOME", path: "/" },
-  { name: "ABOUT", path: "/about" },
-  { name: "SERVICES", path: "/services" },
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Services", path: "/services" },
   { name: "CONTACT US", path: "/contact" },
 ];
 
@@ -39,10 +39,10 @@ const Navigationbar = ({ isScrolled }) => {
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className={` ${
-          isScrolled ? "bg-secoundary" : "bg-secoundary  mx-30 rounded-4xl mt-8"
+          isScrolled ? "bg-gray-900" : "bg-gray-900 mx-30 rounded-4xl mt-8"
         }`}
       >
-        <div className="flex justify-between items-center p-4 px-6 md:px-10">
+        <div className="flex justify-between items-center p-3 px-6 md:px-10">
           <motion.h3
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
