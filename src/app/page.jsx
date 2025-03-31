@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = throttle(() => {
       setIsScrolled(window.scrollY > 0);
-    }, 100); // Adjust delay as needed
+    }, 100);
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

@@ -43,7 +43,7 @@ const Navigationbar = ({ isScrolled }) => {
         className={` ${
           isScrolled
             ? "bg-gray-900 shadow-2xl"
-            : "bg-gray-900 mx-30 rounded-4xl mt-8 shadow-2xl"
+            : "bg-gray-900 mx-48 py-2 rounded-4xl mt-8 shadow-2xl"
         }`}
       >
         <div className="flex justify-between items-center p-3 px-6 md:px-10">
@@ -84,7 +84,7 @@ const Navigationbar = ({ isScrolled }) => {
                   <motion.div
                     variants={linkHoverVariants}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="absolute inset-0 text-yellow-600"
+                    className="absolute inset-0 text-secoundary"
                   >
                     {link.name}
                   </motion.div>
