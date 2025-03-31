@@ -1,6 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -36,17 +36,23 @@ const Navigationbar = ({ isScrolled }) => {
         animate={{
           scale: isScrolled ? 1 : 1.05,
           opacity: isScrolled ? 1 : 0.9,
+          rotateX: isScrolled ? 0 : 6,
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
+        style={{ perspective: "1000px" }}
         className={` ${
-          isScrolled ? "bg-gray-900" : "bg-gray-900 mx-30 rounded-4xl mt-8"
+          isScrolled
+            ? "bg-gray-900 shadow-2xl"
+            : "bg-gray-900 mx-30 rounded-4xl mt-8 shadow-2xl"
         }`}
       >
         <div className="flex justify-between items-center p-3 px-6 md:px-10">
+          {/* Logo with subtle depth */}
           <motion.h3
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
+            whileHover={{ scale: 1.1, rotateY: 5 }}
             className="text-xl font-semibold"
           >
             <img
@@ -56,6 +62,7 @@ const Navigationbar = ({ isScrolled }) => {
             />
           </motion.h3>
 
+          {/* Desktop Navigation Links */}
           <ul className="hidden md:flex gap-12">
             {navLinks.map((link, index) => (
               <motion.li
@@ -65,10 +72,13 @@ const Navigationbar = ({ isScrolled }) => {
                 whileHover="hovered"
                 animate="initial"
                 whileTap="hovered"
+                style={{ perspective: "1000px" }}
               >
                 <motion.a
                   href={link.path}
-                  className="relative block text-white"
+                  className="relative block text-white text-lg"
+                  whileHover={{ rotateX: 10, rotateY: 5 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
                   <motion.div variants={linkVariants}>{link.name}</motion.div>
                   <motion.div
@@ -83,10 +93,12 @@ const Navigationbar = ({ isScrolled }) => {
             ))}
           </ul>
 
+          {/* Mobile Menu Button with 3D Hover Effect */}
           <motion.button
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
+            whileHover={{ rotateZ: 10, scale: 1.1 }}
             className="md:hidden text-white text-2xl"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -94,18 +106,20 @@ const Navigationbar = ({ isScrolled }) => {
           </motion.button>
         </div>
 
+        {/* Mobile Navigation Menu with 3D Animation */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
               className="md:hidden absolute top-full left-0 w-full bg-primary shadow-md"
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
+              initial={{ y: -20, opacity: 0, rotateX: 90 }}
+              animate={{ y: 0, opacity: 1, rotateX: 0 }}
+              exit={{ y: -20, opacity: 0, rotateX: 90 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
+              style={{ perspective: "1000px" }}
             >
               <ul className="flex flex-col items-center gap-6 py-6 text-lg">
                 {navLinks.map((link, index) => (
-                  <motion.li key={index} whileTap={{ scale: 0.95 }}>
+                  <motion.li key={index}>
                     <a
                       href={link.path}
                       className="text-white hover:text-yellow-600 transition duration-200"
