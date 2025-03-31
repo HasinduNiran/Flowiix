@@ -44,9 +44,6 @@ export default function ServiceStats() {
                 <h4 className="text-lg font-semibold text-gray-800 mb-1">
                   {stat.title}
                 </h4>
-                <p className="text-gray-500 text-sm md:text-base">
-                  {stat.description}
-                </p>
               </div>
             ))}
           </div>

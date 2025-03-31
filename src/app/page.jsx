@@ -21,9 +21,10 @@ export default function Home() {
     <div className="bg-primary w-screen items-center justify-center">
       <Navbar isScrolled={isScrolled} />
       <HeroSection />
-
       <TimelineDemo />
-      <HeroParallaxDemo />
+      <div className="pb-20">
+        <HeroParallaxDemo />
+      </div>
     </div>
   );
 }
