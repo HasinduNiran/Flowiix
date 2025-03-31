@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import { HeroHighlight } from "./ui/hero-highlight";
+import { WavyBackground } from "./ui/wavy-background";
 
 export default function ServiceStats() {
   const stats = [
@@ -26,7 +28,7 @@ export default function ServiceStats() {
   ];
 
   return (
-    <div className="relative -mt-80 min-h-[60vh] md:min-h-screen w-full flex items-center justify-center px-4 sm:px-6 py-20 md:py-0">
+    <div className="min-h-[60vh] md:min-h-screen w-full flex items-center justify-center px-4 sm:px-6   overflow-hidden z-10">
       <div className="w-full max-w-6xl">
         {/* Stats Cards */}
         <div className="flex flex-col items-center justify-center">
@@ -50,17 +52,16 @@ export default function ServiceStats() {
           </div>
         </div>
 
-        {/* Background Image */}
-        <div className="relative -mt-20 sm:-mt-28 md:-mt-40 z-0 w-full">
-          <div className="absolute inset-0 bg-black bg-opacity-30 rounded-lg"></div>
-          <Image
-            src="/asset/images/banner.jpeg"
-            alt="Background"
-            width={1312}
-            height={395}
-            className="w-full max-w-5xl mx-auto h-[200px] sm:h-[300px] md:h-[395px] rounded-lg object-cover"
-            priority
-          />
+        {/* Background Image - FIXED */}
+        <div className="relative w-full max-w-full overflow-hidden flex justify-center items-center -mt-16 sm:-mt-24 md:-mt-32 z-0 h-96 rounded-3xl">
+          <WavyBackground className="w-full h-full max-w-5xl mx-auto flex flex-col justify-center items-center">
+            <p className="text-2xl md:text-4xl lg:text-7xl text-white font-bold inter-var text-center mt-10">
+              Hero waves are cool
+            </p>
+            <p className="text-base md:text-lg mt-4 text-white font-normal inter-var text-center">
+              Leverage the power of canvas to create a beautiful hero section
+            </p>
+          </WavyBackground>
         </div>
       </div>
     </div>
