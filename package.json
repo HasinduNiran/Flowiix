@@ -18,7 +18,9 @@
     "motion": "^12.6.2",
     "next": "15.2.4",
     "react": "^19.0.0",
+    "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
+    "react-intersection-observer": "^9.16.0",
     "simplex-noise": "^4.0.3",
     "tailwind-merge": "^3.0.2"
   },

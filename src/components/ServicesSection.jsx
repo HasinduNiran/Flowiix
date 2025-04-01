@@ -4,8 +4,13 @@ import ServiceCard from "../../src/components/ui/ServiceCard";
 
 const ServicesSection = () => {
   return (
-    <section className="relative text-center overflow-hidden">
-      <div className="absolute inset-0 z-0"></div>
+    <section className="relative text-center overflow-hidden mt-32">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
+        <h2 className="text-6xl text-center font-semibold mb-20 text-black dark:text-white">
+          What We Do
+        </h2>
+      </div>
+
       <div className="flex">
         <div className="grid md:grid-cols-3 gap-28 mt-14 max-w-6xl mx-auto my-20">
           {[

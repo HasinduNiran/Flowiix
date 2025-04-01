@@ -55,34 +55,48 @@ const HeroSection = () => {
     <section className="overflow-hidden">
       <div className="relative flex flex-col lg:grid lg:grid-cols-2 px-4 sm:px-6 md:px-8 lg:px-10">
         {/* Left Text Section */}
-        <div className="z-10 lg:ml-24 mt-32 lg:mt-40 w-full max-w-2xl mx-auto lg:mx-0 px-4 sm:px-0">
-          <h2 className="text-white font-semibold text-4xl sm:text-5xl lg:text-7xl leading-tight mt-10">
-            Find the project you love
-          </h2>
-          <p className="text-white mt-6 lg:mt-8 text-sm sm:text-base">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus in
-            libero risus semper habitant arcu eget. Et integer diam. Lorem ipsum
-            dolor sit ame, consectetur Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.
-          </p>
-          <button className="text-left bg-secoundary px-6 sm:px-8 py-2 sm:py-3 rounded-3xl mt-6 lg:mt-8 text-sm sm:text-base">
+        <div className="z-10 lg:text-left text-center lg:ml-24 mt-32 lg:mt-40 w-full max-w-2xl mx-auto lg:mx-0 px-4 ">
+          <motion.h2
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9 }}
+            className="text-white font-semibold text-6xl lg:text-7xl leading-tight lg:mt-10 mt-16 "
+          >
+            Turning Vision into Reality
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9 }}
+            className="text-white px-10 lg:px-0 lg:mt-8 mt-10 text-sm sm:text-base leading-relaxed"
+          >
+            We are a forward-thinking startup, passionate about transforming
+            ideas into powerful digital experiences. From intuitive web
+            applications to scalable mobile solutions, we craft technology that
+            drives impact and innovation.
+          </motion.p>
+
+          <motion.button
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left bg-secoundary px-8 py-3 rounded-3xl mt-10  lg:mt-10 text-md "
+          >
             Explore
-          </button>
+          </motion.button>
         </div>
 
         {/* Right Image */}
         <motion.img
-          className="absolute top-1/3 
-         lg:translate-x-6/6 opacity-80 lg:-translate-y-2/5
-        w-[90vw] sm:w-[80vw] max-w-[1050px] h-auto"
+          className="absolute top-1/3 left-1/2 transform -translate-x-1/2 
+          lg:left-auto lg:translate-x-6/6 opacity-15 lg:opacity-80 
+          lg:-translate-y-2/5 max-w-[1050px] h-auto animate-spin-slow"
           src="/asset/images/flat-ring.png"
           alt="Rotating"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
         />
       </div>
 
-      <div className="-mt-16 ">
+      <div className="mt-20 ">
         <ServiceStats />
       </div>
 

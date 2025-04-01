@@ -1,4 +1,5 @@
 "use client";
+
 import { useScroll, useTransform, motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -25,7 +26,7 @@ export const Timeline = ({ data }) => {
   return (
     <div className="w-full bg-primary font-sans md:px-10" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
-        <h2 className="text-6xl text-center font-semibold mb-4 text-black dark:text-white">
+        <h2 className="text-6xl text-center font-semibold mb-2 text-black dark:text-white">
           How We Do It
         </h2>
       </div>

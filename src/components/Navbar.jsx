@@ -43,7 +43,7 @@ const Navigationbar = ({ isScrolled }) => {
         className={` ${
           isScrolled
             ? "bg-gray-900 shadow-2xl"
-            : "bg-gray-900 mx-48 py-2 rounded-4xl mt-8 shadow-2xl"
+            : "bg-gray-900 lg:mx-48 mx-20 py-2 rounded-4xl mt-8 shadow-2xl"
         }`}
       >
         <div className="flex justify-between items-center p-3 px-6 md:px-10">
@@ -58,7 +58,7 @@ const Navigationbar = ({ isScrolled }) => {
             <img
               src="asset/images/flowix_icon.png"
               alt="Logo"
-              className="w-28 h-auto"
+              className="lg:w-28 w-20 h-auto"
             />
           </motion.h3>
 
