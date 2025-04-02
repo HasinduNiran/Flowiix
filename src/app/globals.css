@@ -40,3 +40,16 @@
 .animate-spin-slow {
   animation: spinSlow 50s linear infinite;
 }
+
+.bg-radial-glow {
+  background: radial-gradient(
+    circle,
+    rgba(53, 104, 185, 0.4) 0%,
+    rgba(0, 0, 0, 0) 60%
+  );
+  filter: blur(100px);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+}
