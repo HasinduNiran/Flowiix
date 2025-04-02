@@ -20,7 +20,7 @@ const ContactHeroSection = () => {
     <div className="text-center mx-auto max-w-3xl mb-20 z-10 relative h-screen">
               
       {/* Right top fabric image with fixed positioning */}
-      <div className="absolute right-0 top-0 opacity-60 z-5 hidden md:block">
+      <div className="absolute right-0 top-0 opacity-100 z-5 hidden md:block">
         <motion.div 
           className="relative" 
           style={{ right: "-700px", top: "-450px" }}
@@ -46,7 +46,7 @@ const ContactHeroSection = () => {
       </div>
       
       {/* Left top fabric image with fixed positioning */}
-      <div className="absolute left-0 top-0 opacity-60 z-5 hidden md:block">
+      <div className="absolute left-0 top-0 opacity-100 z-5 hidden md:block">
         <motion.div 
           className="relative" 
           style={{ left: "-550px", top: "-250px" }}
