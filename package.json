@@ -10,8 +10,9 @@
   },
   "dependencies": {
     "@tabler/icons-react": "^3.31.0",
+    "aos": "^2.3.4",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.6.2",
+    "framer-motion": "^12.6.3",
     "lodash": "^4.17.21",
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.485.0",
