@@ -4,13 +4,12 @@ import Lottie from "lottie-react";
 import React from "react";
 import { Timeline } from "../components/ui/timeline";
 import { WobbleCard } from "./ui/wobble-card";
-
 import delivary from "../../public/asset/steps/delivery-animation.json";
 import planing from "../../public/asset/steps/planing-animation.json";
 import prototype from "../../public/asset/steps/prototype-animation.json";
 import mentanance from "../../public/asset/steps/maintenance-animation.json";
 
-export function TimelineDemo() {
+export default function TimelineDemo() {
   const data = [
     {
       title: "Planning",

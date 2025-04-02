@@ -1,9 +1,23 @@
 "use client";
-import HeroSection from "../components/HeroSection";
+import dynamic from "next/dynamic";
 import React from "react";
-import { TimelineDemo } from "../components/StepsSection";
-import { HeroParallaxDemo } from "../components/OurWorksSection";
-import ServicesSection from "../components/ServicesSection";
+
+const HeroSection = dynamic(() => import("../components/HeroSection"), {
+  ssr: false,
+});
+
+const TimelineDemo = dynamic(() => import("../components/StepsSection"), {
+  ssr: false,
+});
+const HeroParallaxDemo = dynamic(
+  () => import("../components/OurWorksSection"),
+  {
+    ssr: false,
+  }
+);
+const ServicesSection = dynamic(() => import("../components/ServicesSection"), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
