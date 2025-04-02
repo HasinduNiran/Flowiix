@@ -3,23 +3,23 @@
       display: block !important;
     }
     
-    .absolute.right-0.top-0.opacity-60.z-5 .relative {
+    .absolute.right-0.top-0.opacity-100.z-5 .relative {
       right: -250px !important;
       top: -250px !important;
     }
     
-    .absolute.right-0.top-0.opacity-60.z-5 img {
+    .absolute.right-0.top-0.opacity-100.z-5 img {
       width: 400px !important;
       height: auto !important;
     }
     
-    .absolute.left-0.top-0.opacity-60.z-5 .relative {
+    .absolute.left-0.top-0.opacity-100.z-5 .relative {
       left: -200px !important;
       top: 10px !important;
-      z-index: 100 !important;
+      z-index: 10;
     }
     
-    .absolute.left-0.top-0.opacity-60.z-5 img {
+    .absolute.left-0.top-0.opacity-100.z-5 img {
       width: 300px !important;
       height: auto !important;
     }
