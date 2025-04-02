@@ -5,6 +5,7 @@ import blueFabric4 from '../../public/asset/images/img3.png';
 import { motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import './hero.css'
 
 const ContactHeroSection = () => {
   useEffect(() => {
@@ -16,7 +17,7 @@ const ContactHeroSection = () => {
   }, []);
 
   return (
-    <div className="text-center mx-auto max-w-3xl mb-20 z-10 relative">
+    <div className="text-center mx-auto max-w-3xl mb-20 z-10 relative h-screen">
               
       {/* Right top fabric image with fixed positioning */}
       <div className="absolute right-0 top-0 opacity-60 z-5 hidden md:block">
@@ -84,7 +85,7 @@ const ContactHeroSection = () => {
 
       <div className="relative">
         <motion.h1 
-          className="text-5xl md:text-7xl font-bold mb-6 text-white mt-16 tracking-tight"
+          className="text-5xl md:text-7xl font-bold mb-6 text-white mt-46 tracking-tight"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

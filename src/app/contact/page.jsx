@@ -21,7 +21,7 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <div className="bg-primary min-h-screen w-full relative overflow-hidden">
+    <div className="bg-primary  w-full relative overflow-hidden">
       <Navbar isScrolled={isScrolled} />
       
       {/* Enhanced floating decorative elements with motion */}
