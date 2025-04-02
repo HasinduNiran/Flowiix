@@ -21,7 +21,7 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-black">
       <div className="bg-primary w-screen  items-center justify-center ">
         <Navbar isScrolled={isScrolled} />
         <HeroSection />
@@ -37,7 +37,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className=" relative z-0 -top-48">
+      <div className="  z-0 -top-48">
         <Footer />
       </div>
     </div>

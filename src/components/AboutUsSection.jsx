@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay, EffectCards } from "swiper/modules";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-cards";
 import FractalDotGrid from "./ui/fractal-dot-grid";
@@ -12,23 +11,24 @@ import FractalDotGrid from "./ui/fractal-dot-grid";
 const testimonialsData = [
   {
     id: 1,
-    quote:
-      "I feel like I've learned as much from X as I did completing my masters. It's the first thing I read every morning.",
-    author: "Jenn F. - Marketing Director @ Square",
-    imageSrc: "/asset/images/p1.png",
+    title: "Vision",
+    message:
+      "We strive to create a world where technology seamlessly integrates with businesses, enabling them to innovate, grow, and lead in the digital era.",
+    imageSrc: "/asset/images/target.png",
   },
   {
     id: 2,
-    quote:
-      "My boss thinks I know what I'm doing. Honestly, I just read this newsletter.",
-    author: "Adrian Y. - Product Marketing @ Meta",
-    imageSrc: "/asset/images/p1.png",
+    title: "Mission",
+    message:
+      "Our mission is to turn ideas into powerful digital solutions, combining AI, scalability, and user-centric design to drive business success and transformation.",
+    imageSrc: "/asset/images/rocket.png",
   },
   {
     id: 3,
-    quote: "Would be free. If X would be plan to after X.",
-    author: "Lead @ Square",
-    imageSrc: "/asset/images/p1.png",
+    title: "Innovation Philosophy",
+    message:
+      "At Flowiix, innovation means pushing boundaries, adapting to change, and embracing emerging technologies to build future-ready, high-impact solutions.",
+    imageSrc: "/asset/images/idea.png",
   },
 ];
 
@@ -36,44 +36,34 @@ const AboutUsSection = () => {
   return (
     <div className="min-h-[60vh] w-[1300px] relative rounded-[100px] overflow-hidden flex items-center justify-center">
       <FractalDotGrid
-        dotSize={3.5}
-        dotSpacing={18}
-        dotOpacity={0.9}
+        dotSize={4.5}
+        dotSpacing={36}
+        dotOpacity={0.4}
         waveIntensity={99}
         waveRadius={200}
-        dotColor="#647ba1"
-        glowColor="rgba(100, 123, 161, 1)"
+        dotColor="rgba(100, 100, 255, 1)"
+        glowColor="rgba(100, 100, 255, 1)"
         enableNoise={false}
         noiseOpacity={0.03}
         enableMouseGlow={false}
         initialPerformance="medium"
       />
-      <div className="min-h-[60vh] w-[1300px] bg-secoundary flex flex-col md:flex-row items-center justify-center px-6 md:px-16 py-16 rounded-[100px]">
-        {/* Left side - Heading and description */}
-        <div className="w-full md:w-1/2 mb-12 md:mb-0 mr-0 md:mr-12">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            You don't know marketing
+      <div className="min-h-[60vh] w-[1300px] bg-white flex flex-col md:flex-row items-center justify-center px-6 md:px-16 py-16 rounded-[100px]">
+
+        <div className="w-full md:w-1/2 mb-12 md:mb-0 mr-0 md:mr-12 z-20">
+          <h1 className="text-5xl md:text-7xl font-bold text-secoundary mb-6">
+          WHO WE ARE
           </h1>
-          <p className="text-gray-400 text-lg md:text-xl mb-8">
-            ...but we're going to help. We send out weekly break downs of
-            exactly what's working and what's not for the largest companies in
-            the world. It's free.
+          <p className="text-primary text-lg font-normal md:text-xl mb-8">
+          At Flowiix, we craft innovative digital solutions that drive businesses forward. Specializing in web applications, cross-platform mobile apps, AI-powered systems, ERP, and CMS solutions, we blend cutting-edge technology with seamless functionality.
           </p>
 
-          {/* Email subscription form */}
+
           <div className="flex flex-col sm:flex-row w-full max-w-lg">
-            <input
-              type="email"
-              className="bg-gray-800 text-white px-4 py-3 rounded-md mb-4 sm:mb-0 sm:mr-2 w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              placeholder="Enter your email"
-            />
-            <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-md transition-colors duration-300 whitespace-nowrap">
-              Join newsletter
-            </button>
+           
           </div>
         </div>
 
-        {/* Right side - Card carousel with Swiper */}
         <div className="w-full md:w-1/2 h-full relative flex items-center justify-center">
           <div className="w-full max-w-md h-96 md:h-[30rem]">
             <Swiper
@@ -82,7 +72,7 @@ const AboutUsSection = () => {
               modules={[EffectCards, Autoplay]}
               className="w-full h-full"
               autoplay={{
-                delay: 4000, // 5 seconds for smoother transitions
+                delay: 7000, 
                 disableOnInteraction: false,
               }}
               cardsEffect={{
@@ -97,36 +87,29 @@ const AboutUsSection = () => {
                   className="rounded-xl overflow-hidden"
                 >
                   <div className="relative w-full h-full">
-                    {/* Animated border */}
-                    <div className="absolute inset-3 rounded-xl border border-primary z-10 shadow-lg shadow-primary "></div>
+                   
+                    <div className="relative h-full overflow-hidden rounded-2xl border border-slate-700 bg-gradient-to-b from-slate-800/95 to-slate-900/95 p-4 transition-all duration-500 ease-out"></div>
 
-                    {/* Card with blur effect */}
-                    <div className="absolute inset-3 bg-gray-900/90 backdrop-opacity-10 backdrop-filter backdrop-blur-2xl rounded-xl"></div>
-
-                    {/* Card content container */}
-                    <div className="absolute inset-3 flex flex-col justify-end p-8">
-                      {/* Quote */}
-                      <div className="flex-grow flex items-center">
-                        <p className="text-white text-2xl font-medium leading-relaxed">
-                          "{testimonial.quote}"
-                        </p>
+                    <div className="absolute inset-3 flex flex-col items-center justify-center p-8">
+                      <div className="w-20 h-20  overflow-hidden mb-6 ">
+                        <div className="w-full h-full relative">
+                          <Image
+                            src={testimonial.imageSrc}
+                            alt={testimonial.title}
+                            fill
+                            style={{ objectFit: "cover" }}
+                            
+                          />
+                        </div>
+                      </div>
+                      
+                      <div className="mb-6">
+                        <h3 className="text-white text-3xl font-bold text-center">{testimonial.title}</h3>
                       </div>
 
-                      {/* Author with image */}
-                      <div className="mt-8 flex items-center">
-                        <div className="w-16 h-16 rounded-full overflow-hidden mr-4 flex-shrink-0 border-2 border-primary">
-                          <div className="w-full h-full relative">
-                            <Image
-                              src={testimonial.imageSrc}
-                              alt={testimonial.author}
-                              fill
-                              style={{ objectFit: "cover" }}
-                              className="rounded-full"
-                            />
-                          </div>
-                        </div>
-                        <p className="text-indigo-300 text-lg font-medium">
-                          {testimonial.author}
+                      <div className="flex-grow px-6">
+                        <p className="text-gray-300 text-xl font-medium leading-relaxed text-center italic font-serif">
+                          {testimonial.message}
                         </p>
                       </div>
                     </div>
@@ -142,3 +125,4 @@ const AboutUsSection = () => {
 };
 
 export default AboutUsSection;
+
