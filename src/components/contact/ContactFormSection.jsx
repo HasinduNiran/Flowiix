@@ -11,7 +11,7 @@ const ContactFormSection = () => {
       <div className="bg-primary bg-opacity-80 p-6 rounded-lg shadow-lg border border-gray-700 w-full max-w-md mx-auto md:mx-0 relative z-20">
         <form>
           <div className="mb-4">
-            <label htmlFor="name" className="block text-sm mb-1 text-white">Full Name:</label>
+            <label htmlFor="name" className="block text-sm mb-1 text-white">Full Name5:</label>
             <input
               type="text"
               id="name"

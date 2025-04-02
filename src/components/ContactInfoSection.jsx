@@ -12,7 +12,7 @@ const ContactInfoSection = () => {
           alt="Decorative fabric" 
           width={600} 
           height={300}
-          style={{ transform: 'translate(-45%, 50%) rotate(-10deg)' }}
+          style={{ transform: 'translate(-60%, 50%) rotate(-10deg)' }}
         />
       </div>
       
@@ -24,9 +24,9 @@ const ContactInfoSection = () => {
         <Image 
           src={blueFabric3} 
           alt="Decorative fabric" 
-          width={620} 
+          width={520} 
           height={320}
-          style={{ transform: 'translate(50%, 50%) rotate(-12deg)' }}
+          style={{ transform: 'translate(50%, 20%) rotate(-12deg)' }}
         />
       </div>
 

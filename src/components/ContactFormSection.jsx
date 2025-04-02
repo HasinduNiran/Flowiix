@@ -13,15 +13,15 @@ const ContactFormSection = () => {
           </p>
         </div>
         
-        <div className="md:w-1/2 flex flex-col items-center mr-60">
-          <div className="bg-primary bg-opacity-90 p-6 rounded-lg shadow-lg border border-gray-700 w-full max-w-md relative z-20 mr-8">
+        <div className="md:w-1/4 flex flex-col items-center mr-60">
+          <div className="bg-primary bg-opacity-100 p-6 rounded-lg shadow-xl border border-gray-600 w-full max-w-md relative z-20 mr-8 backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
             <form>
               <div className="mb-4">
                 <label htmlFor="name" className="block text-sm mb-1 text-white">Full Name:</label>
                 <input
                   type="text"
                   id="name"
-                  className="w-full bg-transparent border border-gray-400 rounded-md px-3 py-2 focus:outline-none focus:border-white text-white"
+                  className="w-full bg-transparent border border-gray-400 rounded-md px-3 py-2 focus:outline-none focus:border-white text-white hover:border-white transition-colors duration-300"
                 />
               </div>
 
@@ -30,7 +30,7 @@ const ContactFormSection = () => {
                 <input
                   type="email"
                   id="email"
-                  className="w-full bg-transparent border border-gray-400 rounded-md px-3 py-2 focus:outline-none focus:border-white text-white"
+                  className="w-full bg-transparent border border-gray-400 rounded-md px-3 py-2 focus:outline-none focus:border-white text-white hover:border-white transition-colors duration-300"
                 />
               </div>
 
@@ -39,13 +39,13 @@ const ContactFormSection = () => {
                 <textarea
                   id="message"
                   rows="5"
-                  className="w-full bg-transparent border border-gray-400 rounded-md px-3 py-2 focus:outline-none focus:border-white text-white"
+                  className="w-full bg-transparent border border-gray-400 rounded-md px-3 py-2 focus:outline-none focus:border-white text-white hover:border-white transition-colors duration-300"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="bg-secoundary hover:bg-blue-700 text-white py-2 px-8 rounded-md w-full"
+                className="bg-secoundary hover:bg-blue-700 text-white py-2 px-8 rounded-md w-full transition-colors duration-300 shadow-md hover:shadow-lg"
               >
                 Send
               </button>
