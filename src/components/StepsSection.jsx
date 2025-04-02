@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import React from "react";
@@ -10,7 +9,6 @@ import delivary from "../../public/asset/steps/delivery-animation.json";
 import planing from "../../public/asset/steps/planing-animation.json";
 import prototype from "../../public/asset/steps/prototype-animation.json";
 import mentanance from "../../public/asset/steps/maintenance-animation.json";
-import vector1 from "../../public/asset/steps/delivery-animation.json";
 
 export function TimelineDemo() {
   const data = [
