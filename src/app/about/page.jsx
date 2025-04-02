@@ -1,3 +1,4 @@
+"use client";
 import ServiceStats from "@/src/components/serviceStats";
 import React from "react";
 
