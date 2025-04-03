@@ -35,7 +35,7 @@ const ContactInfoSection = () => {
       <div className="absolute left-0 bottom-0 opacity-60 z-5 hidden md:block">
         <motion.div 
           className="relative" 
-          style={{ left: "-300px", bottom: "-50px" }}
+          style={{ left: "-450px", bottom: "-250px" }}
           animate={{ 
             rotateZ: [0, 3, 0, 3, 0],
             y: [0, -10, 0, -10, 0]
@@ -50,7 +50,7 @@ const ContactInfoSection = () => {
           <Image 
             src={blueFabric1} 
             alt="Decorative fabric" 
-            width={600} 
+            width={800} 
             height={300}
             className="transition-all duration-1000"
           />
@@ -75,7 +75,7 @@ const ContactInfoSection = () => {
       <div className="absolute right-0 bottom-0 opacity-60 z-5 hidden md:block">
         <motion.div 
           className="relative" 
-          style={{ right: "-250px", bottom: "-80px" }}
+          style={{ right: "-550px", bottom: "-80px" }}
           animate={{ 
             rotateZ: [0, -3, 0, -3, 0],
             y: [0, 10, 0, 10, 0]
@@ -91,7 +91,7 @@ const ContactInfoSection = () => {
           <Image 
             src={blueFabric3} 
             alt="Decorative fabric" 
-            width={520} 
+            width={870} 
             height={320}
             className="transition-all duration-1000"
           />
