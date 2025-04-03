@@ -10,8 +10,29 @@ import ContactFormSection from "../../components/ContactFormSection";
 
 const ContactPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [particles, setParticles] = useState([]);
+  const [isClient, setIsClient] = useState(false);
   
   useEffect(() => {
+    // Mark that we're on client-side
+    setIsClient(true);
+    
+    // Generate particles only on client-side to avoid hydration mismatch
+    const particleCount = 15;
+    const newParticles = Array.from({ length: particleCount }).map((_, i) => ({
+      id: i,
+      width: Math.random() * 3 + 1,
+      height: Math.random() * 3 + 1,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      opacity: Math.random() * 0.3,
+      animationDuration: Math.random() * 10 + 15,
+      delay: Math.random() * 5,
+      yMovement: Math.random() * 100 + 50
+    }));
+    
+    setParticles(newParticles);
+    
     const handleScroll = throttle(() => {
       setIsScrolled(window.scrollY > 0);
     }, 100);
@@ -69,28 +90,28 @@ const ContactPage = () => {
         }}
       ></motion.div>
       
-      {/* Dynamic particles in the background */}
+      {/* Dynamic particles in the background - only render on client side */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        {[...Array(15)].map((_, i) => (
+        {isClient && particles.map((particle) => (
           <motion.div
-            key={i}
+            key={particle.id}
             className="absolute rounded-full bg-white"
             style={{
-              width: Math.random() * 3 + 1,
-              height: Math.random() * 3 + 1,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.3
+              width: particle.width,
+              height: particle.height,
+              left: particle.left,
+              top: particle.top,
+              opacity: particle.opacity
             }}
             animate={{
-              y: [0, -Math.random() * 100 - 50],
-              opacity: [Math.random() * 0.3, 0],
+              y: [0, -particle.yMovement],
+              opacity: [particle.opacity, 0],
             }}
             transition={{
-              duration: Math.random() * 10 + 15,
+              duration: particle.animationDuration,
               repeat: Infinity,
               ease: "linear",
-              delay: Math.random() * 5
+              delay: particle.delay
             }}
           />
         ))}
