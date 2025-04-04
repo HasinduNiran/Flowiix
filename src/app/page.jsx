@@ -32,12 +32,12 @@ export default function Home() {
         <div className="pb-20">
           <HeroParallaxDemo />
         </div>
-        <div className="flex justify-center relative z-10 mt-20 ">
+        <div className="flex justify-center  z-10 mt-20 ">
           <AboutUsSection />
         </div>
       </div>
 
-      <div className="  z-0 -top-48">
+      <div className="z-0 ">
         <Footer />
       </div>
     </div>
