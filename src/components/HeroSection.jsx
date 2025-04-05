@@ -39,7 +39,6 @@ const HeroSection = () => {
   const rotateX = (mouseYPercentage - 50) / 5;
   const rotateY = (mouseXPercentage - 50) / 5;
 
-
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -52,12 +51,10 @@ const HeroSection = () => {
   const pathLengthFourth = useTransform(scrollYProgress, [0, 0.8], [0.05, 1.2]);
   const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
 
-
   return (
     <section className="overflow-hidden">
       <div className="relative flex flex-col lg:grid lg:grid-cols-2 px-4 sm:px-6 md:px-8 lg:px-10">
         {/* Left Text Section */}
-
         <div className="z-10 lg:text-left text-center lg:ml-24 mt-32 lg:mt-40 w-full max-w-2xl mx-auto lg:mx-0 px-4 ">
           <motion.h2
             initial={{ opacity: 0, x: -50 }}
@@ -100,9 +97,8 @@ const HeroSection = () => {
       </div>
 
       <div className="mt-20 ">
-
         <ServiceStats />
-      </motion.div>
+      </div>
 
       <BackgroundBeams />
     </section>
