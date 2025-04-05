@@ -40,3 +40,41 @@
 .animate-spin-slow {
   animation: spinSlow 50s linear infinite;
 }
+
+/* Add to your globals.css file */
+
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(17, 37, 69, 1);
+    border-color: rgba(100, 123, 161, 1);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(17, 37, 69, 1);
+    border-color: rgba(100, 123, 161, 1);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(17, 37, 69, 1);
+    border-color: rgba(100, 123, 161, 1);
+  }
+}
+
+.swiper-slide {
+  border-radius: 16px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.swiper-slide-active .animate-pulse {
+  animation: borderGlow 3s infinite;
+}
+
+/* Adjust card stacking style */
+.swiper-container {
+  padding: 2rem 0;
+}
+
+/* Make cards more transparent */
+.bg-gray-800.bg-opacity-30 {
+  background-color: rgba(31, 41, 55, 0.25);
+}
