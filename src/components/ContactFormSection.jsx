@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import rectangle from '../../public/asset/images/Rectangle.png';
 import { motion } from 'framer-motion';
@@ -6,11 +6,31 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const ContactFormSection = () => {
+  const [isClient, setIsClient] = useState(false);
+  const [particles, setParticles] = useState([]);
+  
   useEffect(() => {
     AOS.init({
       duration: 800,
       once: false,
     });
+    
+    // Mark that we're on client-side
+    setIsClient(true);
+    
+    // Generate particles only on client-side to avoid hydration mismatch
+    const generateParticles = () => {
+      const particleCount = 20;
+      return Array.from({ length: particleCount }).map((_, i) => ({
+        id: i,
+        width: Math.round(Math.random() * 10 + 2),
+        height: Math.round(Math.random() * 10 + 2),
+        left: `${Math.round(Math.random() * 100)}%`,
+        top: `${Math.round(Math.random() * 100)}%`,
+      }));
+    };
+    
+    setParticles(generateParticles());
   }, []);
 
   return (
@@ -34,29 +54,29 @@ const ContactFormSection = () => {
         />
       </div> */}
       
-      {/* Animated particles in background */}
+      {/* Animated particles in background - only render on client side */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        {[...Array(20)].map((_, i) => (
+        {isClient && particles.map((particle) => (
           <motion.div
-            key={i}
+            key={particle.id}
             className="absolute rounded-full bg-white opacity-20"
             style={{
-              width: Math.random() * 10 + 2,
-              height: Math.random() * 10 + 2,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              width: particle.width,
+              height: particle.height,
+              left: particle.left,
+              top: particle.top,
             }}
             animate={{
-              y: [0, Math.random() * -100 - 50],
-              x: [0, (Math.random() - 0.5) * 50],
+              y: [0, Math.round(Math.random() * -100 - 50)],
+              x: [0, Math.round((Math.random() - 0.5) * 50)],
               opacity: [0.2, 0],
-              scale: [1, Math.random() * 2 + 0.5],
+              scale: [1, Math.round(Math.random() * 2 + 0.5) / 10 + 1],
             }}
             transition={{
-              duration: Math.random() * 5 + 10,
+              duration: Math.round(Math.random() * 5 + 10),
               repeat: Infinity,
               ease: "linear",
-              delay: Math.random() * 10,
+              delay: Math.round(Math.random() * 10),
             }}
           />
         ))}
