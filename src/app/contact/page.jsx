@@ -7,6 +7,7 @@ import { throttle } from "lodash";
 import ContactHeroSection from "../../components/ContactHeroSection";
 import ContactInfoSection from "../../components/ContactInfoSection";
 import ContactFormSection from "../../components/ContactFormSection";
+import Footer from "../../components/Footer";
 
 const ContactPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -138,6 +139,8 @@ const ContactPage = () => {
           <ContactFormSection />
         </motion.div>
       </div>
+      
+      <Footer />
     </div>
   );
 };
