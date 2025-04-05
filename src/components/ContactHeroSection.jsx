@@ -17,7 +17,7 @@ const ContactHeroSection = () => {
   }, []);
 
   return (
-    <div className="text-center mx-auto max-w-3xl mb-20 z-10 relative h-screen">
+    <div className="text-left mx-auto max-w-3xl mb-20 z-10 relative h-screen px-4">
               
       {/* Right top fabric image with fixed positioning */}
       <div className="absolute right-0 top-0 opacity-100 z-5 hidden md:block">
@@ -38,7 +38,7 @@ const ContactHeroSection = () => {
           <Image 
             src={blueFabric2} 
             alt="Decorative fabric" 
-            width={850} 
+            width={700} 
             height={850}
             className="transition-all duration-1000"
           />
@@ -49,7 +49,7 @@ const ContactHeroSection = () => {
       <div className="absolute left-0 top-0 opacity-100 z-5 hidden md:block">
         <motion.div 
           className="relative" 
-          style={{ left: "-550px", top: "-250px" }}
+          style={{ left: "-600px", top: "-450px" }}
           animate={{ 
             rotateZ: [0, -3, 0, -3, 0],
             y: [0, 15, 0, 15, 0]
@@ -65,7 +65,7 @@ const ContactHeroSection = () => {
           <Image 
             src={blueFabric4} 
             alt="Decorative fabric" 
-            width={480} 
+            width={980} 
             height={480}
             className="transition-all duration-1000"
           />
@@ -83,36 +83,40 @@ const ContactHeroSection = () => {
         ></div>
       </div>
 
-      <div className="relative">
+      <div className="relative text-center w-full pl-0 flex justify-center items-center">
         <motion.h1 
-          className="text-5xl md:text-7xl font-bold mb-6 text-white mt-46 tracking-tight"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white mt-40 tracking-tight whitespace-nowrap text-center mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          style={{ textAlign: "center" }}
         >
           <span className="relative inline-block">
-            Get in <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">Touch</span> with Us
-            <motion.div 
-              className="absolute -bottom-2 left-0 w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"
-              initial={{ width: 0 }}
-              animate={{ width: "6rem" }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-            ></motion.div>
+            <span className="relative inline-block">
+              Get in
+              <motion.div 
+                className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+              ></motion.div>
+            </span>
+            {" "}<span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">Touch</span>&nbsp;with Us
           </span>
         </motion.h1>
       </div>
       
       <motion.p 
-        className="text-lg text-gray-200 mx-auto max-w-xl mt-8 leading-relaxed"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
-        Have questions? We'd love to hear from you. Our team is always ready to help and
-        provide the support you need.
-      </motion.p>
+  className="text-xl text-gray-200 mx-auto mt-1 leading-relaxed flex flex-col items-center w-full"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.4, duration: 0.8 }}
+  data-aos="fade-up"
+  data-aos-delay="200"
+>
+  <span className="block mb-5 text-center">Have questions? We'd love to hear from you. Our team is always ready to help and provide the support you need. </span>
+  <span className="block text-center"></span>
+</motion.p>
       
       <div className="relative h-24 mt-8">
         <motion.div 
