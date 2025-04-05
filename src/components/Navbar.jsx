@@ -7,7 +7,7 @@ const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Services", path: "/services" },
-  { name: "CONTACT US", path: "/contact" },
+  { name: "CONTACT US", path: "/contact", isButton: true },
 ];
 
 const linkVariants = {
@@ -43,11 +43,11 @@ const Navigationbar = ({ isScrolled }) => {
         className={` ${
           isScrolled
             ? "bg-gray-900 shadow-2xl"
-            : "bg-gray-900 mx-30 rounded-4xl mt-8 shadow-2xl"
+            : "bg-gray-900 lg:mx-48 mx-20 py-2 rounded-4xl mt-8 shadow-2xl"
         }`}
       >
         <div className="flex justify-between items-center p-3 px-6 md:px-10">
-          {/* Logo with subtle depth */}
+          {/* Logo */}
           <motion.h3
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -58,42 +58,53 @@ const Navigationbar = ({ isScrolled }) => {
             <img
               src="asset/images/flowix_icon.png"
               alt="Logo"
-              className="w-28 h-auto"
+              className="lg:w-28 w-20 h-auto"
             />
           </motion.h3>
 
           {/* Desktop Navigation Links */}
-          <ul className="hidden md:flex gap-12">
+          <ul className="hidden md:flex gap-12 items-center">
             {navLinks.map((link, index) => (
               <motion.li
                 key={index}
-                className="relative h-6 overflow-hidden flex flex-col items-center"
+                className="relative overflow-hidden flex flex-col items-center"
                 initial="initial"
                 whileHover="hovered"
                 animate="initial"
                 whileTap="hovered"
                 style={{ perspective: "1000px" }}
               >
-                <motion.a
-                  href={link.path}
-                  className="relative block text-white text-lg"
-                  whileHover={{ rotateX: 10, rotateY: 5 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                >
-                  <motion.div variants={linkVariants}>{link.name}</motion.div>
-                  <motion.div
-                    variants={linkHoverVariants}
+                {link.isButton ? (
+                  <motion.a
+                    href={link.path}
+                    className="relative block bg-secoundary text-gray-900 px-6 py-2 rounded-lg transition "
+                    whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="absolute inset-0 text-yellow-600"
                   >
                     {link.name}
-                  </motion.div>
-                </motion.a>
+                  </motion.a>
+                ) : (
+                  <motion.a
+                    href={link.path}
+                    className="relative block text-white text-lg"
+                    whileHover={{ rotateX: 10, rotateY: 5 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                    <motion.div variants={linkVariants}>{link.name}</motion.div>
+                    <motion.div
+                      variants={linkHoverVariants}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="absolute inset-0 text-secoundary"
+                    >
+                      {link.name}
+                    </motion.div>
+                  </motion.a>
+                )}
               </motion.li>
             ))}
           </ul>
 
-          {/* Mobile Menu Button with 3D Hover Effect */}
+          {/* Mobile Menu Button */}
           <motion.button
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -106,7 +117,7 @@ const Navigationbar = ({ isScrolled }) => {
           </motion.button>
         </div>
 
-        {/* Mobile Navigation Menu with 3D Animation */}
+        {/* Mobile Navigation Menu */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -120,13 +131,23 @@ const Navigationbar = ({ isScrolled }) => {
               <ul className="flex flex-col items-center gap-6 py-6 text-lg">
                 {navLinks.map((link, index) => (
                   <motion.li key={index}>
-                    <a
-                      href={link.path}
-                      className="text-white hover:text-yellow-600 transition duration-200"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {link.name}
-                    </a>
+                    {link.isButton ? (
+                      <a
+                        href={link.path}
+                        className="bg-yellow-500 text-gray-900 px-6 py-2 rounded-lg font-semibold transition hover:bg-yellow-600"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <a
+                        href={link.path}
+                        className="text-white hover:text-yellow-600 transition duration-200"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {link.name}
+                      </a>
+                    )}
                   </motion.li>
                 ))}
               </ul>

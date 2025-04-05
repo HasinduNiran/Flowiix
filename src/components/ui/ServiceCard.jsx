@@ -1,11 +1,15 @@
 "use client";
 import React from "react";
-import Lottie from "lottie-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 const ServiceCard = ({ title, otherDescription }) => {
   return (
-    <div className="w-[350px] h-[500px] bg-transparent cursor-pointer group rounded-3xl perspective-[1000px] p-1">
+    <motion.div
+      initial={{ opacity: 0, y: -50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9 }}
+      className="w-[350px] h-[500px] bg-transparent cursor-pointer group rounded-3xl perspective-[1000px] p-1"
+    >
       {/* Card Container */}
 
       <div className="relative w-full h-full transform-style-preserve-3d duration-500 group-hover:rotate-y-180 rounded-3xl shadow-2xl">
@@ -27,7 +31,7 @@ const ServiceCard = ({ title, otherDescription }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

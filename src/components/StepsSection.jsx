@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { Timeline } from "../components/ui/timeline";
@@ -96,7 +97,7 @@ export function TimelineDemo() {
     },
   ];
   return (
-    <div className="w-full pt-32">
+    <div className="w-full pt-24">
       <Timeline data={data} />
     </div>
   );
