@@ -77,80 +77,78 @@ const services = [
 
 const ServicesPage = () => {
   return (
-    <div className="min-h-screen bg-primary text-white py-20 px-6 md:px-20">
-      {/* Header Section */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="text-center mb-16 pt-28"
-      >
-        <h2 className="text-5xl font-bold text-white">Our Services</h2>
-        <p className="text-lg text-gray-300 mt-3 max-w-2xl mx-auto">
-          We offer a comprehensive range of services to help businesses grow
-          digitally. From stunning UI/UX design to robust web and mobile
-          applications, we ensure high-quality solutions tailored to your needs.
-        </p>
-      </motion.div>
+    <div className="bg-primary">
+      <div className="min-h-screen text-white pt-20 px-6 md:px-20">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="text-center mb-16 pt-28"
+        >
+          <h2 className="text-5xl font-bold text-white">Our Services</h2>
+          <p className="text-lg text-gray-300 mt-3 max-w-2xl mx-auto">
+            We offer a comprehensive range of services to help businesses grow
+            digitally. From stunning UI/UX design to robust web and mobile
+            applications, we ensure high-quality solutions tailored to your
+            needs.
+          </p>
+        </motion.div>
 
-      {/* Services List */}
-      <div className="space-y-16">
-        {services.map((service, index) => (
-          <motion.div
-            key={index}
-            className={`flex flex-col md:flex-row ${
-              index % 2 === 0 ? "md:flex-row-reverse" : ""
-            } items-center bg-gray-900 p-6 rounded-lg shadow-lg transition hover:shadow-2xl hover:scale-[1.02]`}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-          >
-            {/* Image Section */}
-            <div className="md:w-1/2">
-              <Image
-                src={service.image}
-                alt={service.title}
-                className="rounded-lg shadow-lg"
-              />
-            </div>
-
-            {/* Content Section */}
-            <div className="md:w-1/2 text-center md:text-left p-6">
-              <div className="flex justify-center md:justify-start">
-                {service.icon}
+        {/* Services List */}
+        <div className="space-y-16">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              className={`flex flex-col md:flex-row ${
+                index % 2 === 0 ? "md:flex-row-reverse" : ""
+              } items-center bg-gray-900 p-6 rounded-lg shadow-lg transition hover:shadow-2xl hover:scale-[1.02]`}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              {/* Image Section */}
+              <div className="md:w-1/2">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  className="rounded-lg shadow-lg"
+                />
               </div>
-              <h3 className="text-3xl font-semibold mt-4">{service.title}</h3>
-              <p className="text-gray-400 mt-2">{service.description}</p>
-              <p className="text-gray-300 mt-4">{service.details}</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
 
-      {/* Call to Action */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-        className="text-center mt-20"
-      >
-        <h3 className="text-3xl font-semibold text-white">
-          Ready to Elevate Your Business?
-        </h3>
-        <p className="text-gray-300 mt-2">
-          Contact us today and let's create something extraordinary together.
-        </p>
-        <button className="mt-6 px-6 py-3 bg-secondary text-white font-semibold rounded-full shadow-md hover:shadow-xl transition">
-          Get in Touch
-        </button>
-        <div className="w-screen">
-          <Spline
-            scene="/spline/scene-14.splinecode"
-            className="w-screen h-full"
-          />
+              {/* Content Section */}
+              <div className="md:w-1/2 text-center md:text-left p-6">
+                <div className="flex justify-center md:justify-start">
+                  {service.icon}
+                </div>
+                <h3 className="text-3xl font-semibold mt-4">{service.title}</h3>
+                <p className="text-gray-400 mt-2">{service.description}</p>
+                <p className="text-gray-300 mt-4">{service.details}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </motion.div>
+
+        {/* Call to Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+          className="text-center mt-20"
+        >
+          <h3 className="text-3xl font-semibold text-white">
+            Ready to Elevate Your Business?
+          </h3>
+          <p className="text-gray-300 mt-2">
+            Contact us today and let's create something extraordinary together.
+          </p>
+          <button className="mt-6 px-6 py-3 bg-secondary text-white font-semibold rounded-full shadow-md hover:shadow-xl transition">
+            Get in Touch
+          </button>
+        </motion.div>
+      </div>
+      <Spline scene="/spline/scene-14.splinecode" className="w-screen h-full" />
     </div>
   );
 };
