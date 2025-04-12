@@ -3,8 +3,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
-import Spline from "@splinetool/react-spline";
-import { BackgroundBeams } from "./ui/background-beams";
 import ServiceStats from "./serviceStats";
 import FireWorks from "../../public/asset/images/home/Animation - 1744446701757.json";
 
@@ -37,6 +35,7 @@ const HeroSection = () => {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
   return (
     <section className="overflow-hidden">
       <div className="relative flex flex-col lg:grid lg:grid-cols-2 px-4 sm:px-6 md:px-8 lg:px-10">
