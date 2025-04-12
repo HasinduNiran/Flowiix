@@ -7,7 +7,9 @@ import ServiceStats from "./serviceStats";
 import FireWorks from "../../public/asset/images/home/Animation - 1744446701757.json";
 
 const HeroSection = () => {
+  const [isClient, setIsClient] = useState(false);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const [hueValue, setHueValue] = useState(0);
   const colors = [
     "hue-rotate(0deg) saturate(2)",
@@ -19,21 +21,36 @@ const HeroSection = () => {
   const [currentColorIndex, setCurrentColorIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentColorIndex((prevIndex) => (prevIndex + 1) % colors.length);
-      setHueValue(Math.floor(Math.random() * 360));
-    }, 2000);
+    setIsClient(true);
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
 
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
     const handleMouseMove = (e) => {
       setMouse({ x: e.clientX, y: e.clientY });
     };
 
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    const colorInterval = setInterval(() => {
+      setCurrentColorIndex((prev) => (prev + 1) % colors.length);
+      setHueValue(Math.floor(Math.random() * 360));
+    }, 2000);
+
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      clearInterval(colorInterval);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -97,55 +114,57 @@ const HeroSection = () => {
           alt="Rotating"
         /> */}
       </div>
-      <motion.div
-        className="w-full h-screen absolute bottom-0 left-0 pointer-events-none"
-        animate={{
-          x: (mouse.x - window.innerWidth / 2) * 0.02,
-          y: (mouse.y - window.innerHeight / 2) * 0.02,
-        }}
-        transition={{
-          type: "keyframes",
-          stiffness: 50,
-          damping: 20,
-        }}
-      >
-        {/* Background Image (Tower) */}
-        <div className="w-full h-screen overflow-hidden absolute top-0 left-0">
-          <div className="absolute inset-0 z-50 bg-gradient-to-t from-primary to-transparent pointer-events-none" />
+      {isClient && (
+        <motion.div
+          className="w-full h-screen absolute bottom-0 left-0 pointer-events-none"
+          animate={{
+            x: (mouse.x - windowSize.width / 2) * 0.02,
+            y: (mouse.y - windowSize.height / 2) * 0.02,
+          }}
+          transition={{
+            type: "keyframes",
+            stiffness: 50,
+            damping: 20,
+          }}
+        >
+          {/* Background Image (Tower) */}
+          <div className="w-full h-screen overflow-hidden absolute top-0 left-0">
+            <div className="absolute inset-0 z-50 bg-gradient-to-t from-primary to-transparent pointer-events-none" />
 
-          <img
-            src="/asset/images/nelum_kuluna-2.png"
-            className="w-[140%] h-full object-cover object-right "
-            alt="Nelum Kuluna"
-          />
-        </div>
+            <img
+              src="/asset/images/nelum_kuluna-2.png"
+              className="w-[140%] h-full object-cover object-right "
+              alt="Nelum Kuluna"
+            />
+          </div>
 
-        <div className="absolute top-[10%] -right-[39.52%] z-50 transform translate-x-1/2">
-          <img
-            src="/asset/images/nelumkuluna_mask.png"
-            className=""
-            alt="Nelum Kuluna"
-            style={{
-              transform: "scale(1.4)",
-              filter: colors[currentColorIndex],
-            }}
-          />
-        </div>
+          <div className="absolute top-[10%] -right-[39.52%] z-50 transform translate-x-1/2">
+            <img
+              src="/asset/images/nelumkuluna_mask.png"
+              className=""
+              alt="Nelum Kuluna"
+              style={{
+                transform: "scale(1.4)",
+                filter: colors[currentColorIndex],
+              }}
+            />
+          </div>
 
-        {/* Fireworks aligned to tower at right-32 */}
-        <div className="absolute bottom-[43%] rotate-z-12 right-56 z-50 transform translate-x-1/2">
-          <Lottie
-            animationData={FireWorks}
-            className="w-60 opacity-60 sm:w-64 lg:w-64"
-          />
-        </div>
-        <div className="absolute bottom-[43%] -rotate-z-12 right-96 z-50 transform translate-x-1/2">
-          <Lottie
-            animationData={FireWorks}
-            className="w-60 opacity-60 sm:w-64 lg:w-64"
-          />
-        </div>
-      </motion.div>
+          {/* Fireworks aligned to tower at right-32 */}
+          <div className="absolute bottom-[43%] rotate-z-12 right-56 z-50 transform translate-x-1/2">
+            <Lottie
+              animationData={FireWorks}
+              className="w-60 opacity-60 sm:w-64 lg:w-64"
+            />
+          </div>
+          <div className="absolute bottom-[43%] -rotate-z-12 right-96 z-50 transform translate-x-1/2">
+            <Lottie
+              animationData={FireWorks}
+              className="w-60 opacity-60 sm:w-64 lg:w-64"
+            />
+          </div>
+        </motion.div>
+      )}
 
       <div className="mt-20 ">
         <ServiceStats />
