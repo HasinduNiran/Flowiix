@@ -15,17 +15,21 @@
 }
 
 @layer utilities {
-  /* Custom CSS for the card flip effect */
   .perspective-1000 {
     perspective: 1000px;
   }
   .transform-style-preserve-3d {
     transform-style: preserve-3d;
   }
-
   .backface-hidden {
     backface-visibility: hidden;
   }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  .transition-transform-500 {
+    transition: transform 0.5s ease-in-out;
 
   /* Animation utilities */
   .animate-slow-float {
@@ -80,6 +84,7 @@
     100% {
       transform: scale(1);
     }
+
   }
 }
 
@@ -95,6 +100,19 @@
 .animate-spin-slow {
   animation: spinSlow 50s linear infinite;
 }
+
+
+.bg-radial-glow {
+  background: radial-gradient(
+    circle,
+    rgba(53, 104, 185, 0.4) 0%,
+    rgba(0, 0, 0, 0) 60%
+  );
+  filter: blur(100px);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
 
 /* Add to your globals.css file */
 
@@ -132,4 +150,5 @@
 /* Make cards more transparent */
 .bg-gray-800.bg-opacity-30 {
   background-color: rgba(31, 41, 55, 0.25);
+
 }

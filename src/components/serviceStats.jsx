@@ -34,32 +34,22 @@ export default function ServiceStats() {
         <div className="flex flex-col items-center justify-center">
           <div className="bg-white w-full max-w-4xl xl:w-[1048px] h-auto  rounded-4xl shadow-lg p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 z-20 relative">
             {stats.map((stat, index) => (
-              <motion.div
+              <div
                 key={index}
                 className="text-center p-4 hover:bg-gray-50 transition-all duration-300 rounded-lg"
               >
-                <motion.h3
-                  initial={{ opacity: 0, y: -50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="text-2xl md:text-3xl font-bold text-primary mb-2"
-                >
+                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-2">
                   <CountUp
                     start={0}
                     end={stat.value}
                     duration={2.75}
                     suffix={stat.type === "percentage" ? " %" : " +"}
                   />
-                </motion.h3>
-                <motion.h4
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="text-lg font-semibold text-gray-800 mb-1"
-                >
+                </h3>
+                <h4 className="text-lg font-semibold text-gray-800 mb-1">
                   {stat.title}
-                </motion.h4>
-              </motion.div>
+                </h4>
+              </div>
             ))}
           </div>
         </div>

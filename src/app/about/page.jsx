@@ -1,3 +1,6 @@
+
+"use client";
+
 import AboutUsSection from "@/src/components/AboutUsSection";
 import ServiceStats from "@/src/components/serviceStats";
 import React from "react";

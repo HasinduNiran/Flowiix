@@ -1,60 +1,44 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { useScroll, useTransform } from "motion/react";
+import React from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { BackgroundBeams } from "./ui/background-beams";
-import { GoogleGeminiEffect } from "./ui/google-gemini-effect";
-import { MaskContainer } from "./ui/svg-mask-effect";
+import Lottie from "lottie-react";
 import ServiceStats from "./serviceStats";
+import FireWorks from "../../public/asset/images/home/Animation - 1744446701757.json";
 
 const HeroSection = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-
-  const pathLengths = [0.2, 0.4, 0.6, 0.8, 1.0];
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const [hueValue, setHueValue] = useState(0);
+  const colors = [
+    "hue-rotate(0deg) saturate(2)",
+    "hue-rotate(90deg) saturate(1.5)",
+    "hue-rotate(180deg) saturate(1.8)",
+    "hue-rotate(270deg) saturate(2)",
+    "hue-rotate(360deg) saturate(1.5)",
+  ];
+  const [currentColorIndex, setCurrentColorIndex] = useState(0);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    const interval = setInterval(() => {
+      setCurrentColorIndex((prevIndex) => (prevIndex + 1) % colors.length);
+      setHueValue(Math.floor(Math.random() * 360));
+    }, 2000);
 
-      const handleMouseMove = (e) => {
-        setMousePosition({ x: e.clientX, y: e.clientY });
-      };
-
-      window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("resize", () => {
-        setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-      });
-
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove);
-        window.removeEventListener("resize", () => {});
-      };
-    }
+    return () => clearInterval(interval);
   }, []);
 
-  const mouseXPercentage = (mousePosition.x / windowSize.width) * 150 || 0;
-  const mouseYPercentage = (mousePosition.y / windowSize.height) * 150 || 0;
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMouse({ x: e.clientX, y: e.clientY });
+    };
 
-  const rotateX = (mouseYPercentage - 50) / 5;
-  const rotateY = (mouseXPercentage - 50) / 5;
-
-  const ref = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const pathLengthFirst = useTransform(scrollYProgress, [0, 0.8], [0.2, 1.2]);
-  const pathLengthSecond = useTransform(scrollYProgress, [0, 0.8], [0.15, 1.2]);
-  const pathLengthThird = useTransform(scrollYProgress, [0, 0.8], [0.1, 1.2]);
-  const pathLengthFourth = useTransform(scrollYProgress, [0, 0.8], [0.05, 1.2]);
-  const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   return (
     <section className="overflow-hidden">
       <div className="relative flex flex-col lg:grid lg:grid-cols-2 px-4 sm:px-6 md:px-8 lg:px-10">
-        {/* Left Text Section */}
         <div className="z-10 lg:text-left text-center lg:ml-24 mt-32 lg:mt-40 w-full max-w-2xl mx-auto lg:mx-0 px-4 ">
           <motion.h2
             initial={{ opacity: 0, x: -50 }}
@@ -85,22 +69,87 @@ const HeroSection = () => {
             Explore
           </motion.button>
         </div>
+        {/* <motion.div
+          className="absolute inset-0 blur-3xl pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle at left center, #9fbcea 0%, transparent 70%)",
+            opacity: 0.4,
+            left: "-50%",
+            width: "150%",
+          }}
+          animate={{
+            opacity: [0.3, 0.6, 0.3],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        /> */}
 
-        {/* Right Image */}
-        <motion.img
+        {/* <img
           className="absolute top-1/3 left-1/2 transform -translate-x-1/2 
-          lg:left-auto lg:translate-x-6/6 opacity-15 lg:opacity-80 
-          lg:-translate-y-2/5 max-w-[1050px] h-auto animate-spin-slow"
+          lg:left-auto lg:translate-x-4/6 opacity-15 lg:opacity-80 
+          lg:-translate-y-2/5 w-full h-auto animate-spin-slow"
           src="/asset/images/flat-ring.png"
           alt="Rotating"
-        />
+        /> */}
       </div>
+      <motion.div
+        className="w-full h-screen absolute bottom-0 left-0 pointer-events-none"
+        animate={{
+          x: (mouse.x - window.innerWidth / 2) * 0.02,
+          y: (mouse.y - window.innerHeight / 2) * 0.02,
+        }}
+        transition={{
+          type: "keyframes",
+          stiffness: 50,
+          damping: 20,
+        }}
+      >
+        {/* Background Image (Tower) */}
+        <div className="w-full h-screen overflow-hidden absolute top-0 left-0">
+          <div className="absolute inset-0 z-50 bg-gradient-to-t from-primary to-transparent pointer-events-none" />
+
+          <img
+            src="/asset/images/nelum_kuluna-2.png"
+            className="w-[140%] h-full object-cover object-right "
+            alt="Nelum Kuluna"
+          />
+        </div>
+
+        <div className="absolute top-[10%] -right-[39.52%] z-50 transform translate-x-1/2">
+          <img
+            src="/asset/images/nelumkuluna_mask.png"
+            className=""
+            alt="Nelum Kuluna"
+            style={{
+              transform: "scale(1.4)",
+              filter: colors[currentColorIndex],
+            }}
+          />
+        </div>
+
+        {/* Fireworks aligned to tower at right-32 */}
+        <div className="absolute bottom-[43%] rotate-z-12 right-56 z-50 transform translate-x-1/2">
+          <Lottie
+            animationData={FireWorks}
+            className="w-60 opacity-60 sm:w-64 lg:w-64"
+          />
+        </div>
+        <div className="absolute bottom-[43%] -rotate-z-12 right-96 z-50 transform translate-x-1/2">
+          <Lottie
+            animationData={FireWorks}
+            className="w-60 opacity-60 sm:w-64 lg:w-64"
+          />
+        </div>
+      </motion.div>
 
       <div className="mt-20 ">
         <ServiceStats />
       </div>
-
-      <BackgroundBeams />
     </section>
   );
 };

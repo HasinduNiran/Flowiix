@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import Image from "next/image";
@@ -8,6 +9,7 @@ import ContactHeroSection from "../../components/ContactHeroSection";
 import ContactInfoSection from "../../components/ContactInfoSection";
 import ContactFormSection from "../../components/ContactFormSection";
 import Footer from "../../components/Footer";
+
 
 const ContactPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
