@@ -111,30 +111,25 @@ const HeroSection = () => {
         }}
       >
         {/* Background Image (Tower) */}
-
         <div className="w-full h-screen overflow-hidden absolute top-0 left-0">
-          {/* Gradient Overlay */}
           <div className="absolute inset-0 z-50 bg-gradient-to-t from-primary to-transparent pointer-events-none" />
 
-          {/* Mask Image */}
-
-          <div className="absolute right-[18px] top-[218px] z-50">
-            <img
-              src="/asset/images/nelumkuluna_mask.png"
-              className="transition-filter duration-1000 ease-in-out"
-              alt="Nelum Kuluna"
-              style={{
-                transform: "scale(1.9)",
-                filter: colors[currentColorIndex],
-              }}
-            />
-          </div>
-
-          {/* Background Image */}
           <img
             src="/asset/images/nelum_kuluna-2.png"
             className="w-[140%] h-full object-cover object-right "
             alt="Nelum Kuluna"
+          />
+        </div>
+
+        <div className="absolute top-[10%] -right-[39.52%] z-50 transform translate-x-1/2">
+          <img
+            src="/asset/images/nelumkuluna_mask.png"
+            className=""
+            alt="Nelum Kuluna"
+            style={{
+              transform: "scale(1.4)",
+              filter: colors[currentColorIndex],
+            }}
           />
         </div>
 
