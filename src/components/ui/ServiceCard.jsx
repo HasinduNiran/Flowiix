@@ -30,8 +30,14 @@ const ServiceCard = ({ title, otherDescription, lottie }) => {
           <div className="flex flex-col space-y-2">
             <span className="text-3xl font-bold">{title}</span>
           </div>
-          <div className="flex flex-col space-y-5">
-            <span>{otherDescription}</span>
+          <div className="flex flex-col mt-10">
+            <ul className="list-disc text-left text-[16px] leading-relaxed list-inside text-gray-800 dark:text-gray-200 space-y-2 pl-2">
+              {otherDescription.map((item, index) => (
+                <li key={index} className="relative">
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

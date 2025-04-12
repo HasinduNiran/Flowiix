@@ -25,8 +25,8 @@ const ServicesSection = () => {
               title: "Full-Stack Web Development",
               lottie: Fullstack,
               otherDescription: [
-                "Custom web applications with React, Next.js, and Vue.js",
-                "Backend development using Node.js, Express, and databases (MongoDB, PostgreSQL, MySQL)",
+                "Custom web applications ",
+                "Backend development ",
                 "API development and integration (REST & GraphQL)",
                 "Performance optimization and security enhancements",
                 "Responsive and SEO-friendly design",
@@ -38,7 +38,6 @@ const ServicesSection = () => {
               otherDescription: [
                 "Hybrid app development using Flutter & React Native",
                 "Native performance with cross-platform efficiency",
-                "Offline capabilities and push notifications",
                 "Custom UI/UX design for a seamless experience",
                 "Integration with third-party APIs and cloud services",
               ],
@@ -49,7 +48,6 @@ const ServicesSection = () => {
               otherDescription: [
                 "AI-powered chatbots and virtual assistants",
                 "Predictive analytics for data-driven decisions",
-                "Image and speech recognition solutions",
                 "Automated data processing and NLP applications",
                 "Custom AI models trained on real-world datasets",
               ],
@@ -61,7 +59,6 @@ const ServicesSection = () => {
                 "Cloud hosting on AWS, Azure, and Google Cloud",
                 "CI/CD pipelines for faster deployments",
                 "Containerization with Docker & Kubernetes",
-                "Infrastructure as Code (Terraform, Ansible)",
                 "Serverless computing solutions",
               ],
             },
@@ -72,7 +69,6 @@ const ServicesSection = () => {
                 "Wireframing and prototyping (Figma, Adobe XD)",
                 "UI design focused on user engagement",
                 "Accessibility and usability improvements",
-                "Brand identity and design consistency",
                 "Microinteractions and animations for better UX",
               ],
             },
@@ -84,7 +80,6 @@ const ServicesSection = () => {
                 "Secure payment gateway integration",
                 "User-friendly shopping experience",
                 "Product management and inventory tracking",
-                "Performance optimization for faster checkouts",
               ],
             },
           ].map((service, index) => (

@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Spline from "@splinetool/react-spline";
 import { motion } from "framer-motion";
 import {
   FaCode,
@@ -143,6 +144,12 @@ const ServicesPage = () => {
         <button className="mt-6 px-6 py-3 bg-secondary text-white font-semibold rounded-full shadow-md hover:shadow-xl transition">
           Get in Touch
         </button>
+        <div className="w-screen">
+          <Spline
+            scene="/spline/scene-14.splinecode"
+            className="w-screen h-full"
+          />
+        </div>
       </motion.div>
     </div>
   );
