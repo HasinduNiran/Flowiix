@@ -1,46 +1,47 @@
 "use client";
-import dynamic from "next/dynamic";
+import HeroSection from "../components/HeroSection";
+import Navbar from "../components/Navbar";
+import ServiceStats from "../components/serviceStats";
+import { throttle } from "lodash";
 import React, { useState, useEffect } from "react";
-import Loading from "../components/Loading";
-
-const HeroSection = dynamic(() => import("../components/HeroSection"), {
-  ssr: false,
-});
-
-const TimelineDemo = dynamic(() => import("../components/StepsSection"), {
-  ssr: false,
-});
-const HeroParallaxDemo = dynamic(
-  () => import("../components/OurWorksSection"),
-  {
-    ssr: false,
-  }
-);
-const ServicesSection = dynamic(() => import("../components/ServicesSection"), {
-  ssr: false,
-});
+import { TimelineDemo } from "../components/StepsSection";
+import { HeroParallaxDemo } from "../components/OurWorksSection";
+import ServicesSection from "../components/ServicesSection";
+import AboutUsSection from "../components/AboutUsSection";
+import Footer from "../components/Footer";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-
+  const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 5000);
+    const handleScroll = throttle(() => {
+      setIsScrolled(window.scrollY > 0);
+    }, 100);
 
-    return () => clearTimeout(timer);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  if (isLoading) {
-    return <Loading />;
-  }
   return (
-    <div className="bg-primary w-screen items-center justify-center">
-      <HeroSection />
-      <ServicesSection />
-      <TimelineDemo />
-      <div className="pb-20">
-        <HeroParallaxDemo />
+    
+    <div className="overflow-hidden bg-black">
+      <div className="bg-primary w-screen  items-center justify-center ">
+        <Navbar isScrolled={isScrolled} />
+        <HeroSection />
+        <ServicesSection />
+        <TimelineDemo />
+        
+
+      </div>
+      <div className="relative z-10 bg-primary w-screen h-[2600px] items-center justify-center rounded-b-[100px] ">
+        <div className="pb-20">
+          <HeroParallaxDemo />
+        </div>
+        <div className="flex justify-center  z-10 mt-20 ">
+          <AboutUsSection />
+        </div>
+      </div>
+
+      <div className="z-0 ">
+        <Footer />
       </div>
     </div>
   );
