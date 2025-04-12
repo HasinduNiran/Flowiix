@@ -1,4 +1,4 @@
-import FirstView from "@/src/components/FirstView";
+import FirstView from "@/src/app/page";
 import React from "react";
 
 const page = () => {
