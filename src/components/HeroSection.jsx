@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
@@ -104,10 +105,12 @@ const HeroSection = () => {
           <div className="w-full h-screen overflow-hidden absolute top-0 left-0">
             <div className="absolute inset-0 z-50 bg-gradient-to-t from-primary to-transparent pointer-events-none" />
 
-            <img
+            <Image
               src="/asset/images/night_victoria.jpg"
-              className="w-[140%] h-full object-cover object-right"
               alt="Nelum Kuluna"
+              width={1920}
+              height={1080}
+              className="w-[140%] h-full object-cover object-right"
             />
 
             <div className="absolute bottom-[150px] 2xl:bottom-[280px] right-[20%] z-30  translate-x-1/2">
