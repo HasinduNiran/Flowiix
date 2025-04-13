@@ -138,7 +138,7 @@ const HeroSection = () => {
                 initial={{ rotate: 30 }}
                 animate={{ rotate: [30, 60, 30] }}
                 transition={{
-                  duration: 3,
+                  duration: 9,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -154,7 +154,7 @@ const HeroSection = () => {
                 initial={{ rotate: 60 }}
                 animate={{ rotate: [60, 30, 60] }}
                 transition={{
-                  duration: 3,
+                  duration: 9,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -170,7 +170,7 @@ const HeroSection = () => {
                 initial={{ rotate: 350 }}
                 animate={{ rotate: [330, 300, 330] }}
                 transition={{
-                  duration: 3,
+                  duration: 9,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -184,9 +184,11 @@ const HeroSection = () => {
                   right: "-40px",
                 }}
                 initial={{ rotate: 300 }}
-                animate={{ rotate: [300, 330, 300] }}
+                animate={{
+                  rotate: [300, 330, 300],
+                }}
                 transition={{
-                  duration: 3,
+                  duration: 9,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}

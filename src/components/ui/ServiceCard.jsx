@@ -1,25 +1,40 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Lottie from "lottie-react";
 import { motion } from "framer-motion";
 
 const ServiceCard = ({ title, otherDescription, lottie }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleCardClick = () => {
+    setTimeout(() => {
+      setIsFlipped(!isFlipped);
+    }, 300);
+  };
+
   return (
     <motion.div
+      onClick={handleCardClick}
       initial={{ opacity: 0, y: -50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.9 }}
       className="w-[350px] h-[500px] bg-transparent cursor-pointer group rounded-3xl perspective-1000"
     >
       {/* Card Container */}
-      <div className="relative w-full h-full transform-style-preserve-3d transition-transform-500 group-hover:rotate-y-180 rounded-3xl shadow-2xl">
+      <div
+        className={`relative w-full h-full transform-style-preserve-3d transition-transform-500 rounded-3xl shadow-2xl ${
+          isFlipped ? "rotate-y-180" : "group-hover:rotate-y-180"
+        }`}
+      >
         {/* Front Side */}
         <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 backface-hidden rounded-3xl overflow-hidden flex flex-col p-10 shadow-2xl">
-          <Lottie
-            animationData={lottie}
-            className="object-cover"
-            alt="Agent Image"
-          />
+          {!isFlipped && (
+            <Lottie
+              animationData={lottie}
+              className="object-cover"
+              alt="Agent Image"
+            />
+          )}
           <div className="mt-auto">
             <h3 className="text-2xl px-5 font-semibold text-white">{title}</h3>
           </div>
