@@ -86,33 +86,6 @@ const HeroSection = () => {
             Explore
           </motion.button>
         </div>
-        {/* <motion.div
-          className="absolute inset-0 blur-3xl pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle at left center, #9fbcea 0%, transparent 70%)",
-            opacity: 0.4,
-            left: "-50%",
-            width: "150%",
-          }}
-          animate={{
-            opacity: [0.3, 0.6, 0.3],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        /> */}
-
-        {/* <img
-          className="absolute top-1/3 left-1/2 transform -translate-x-1/2 
-          lg:left-auto lg:translate-x-4/6 opacity-15 lg:opacity-80 
-          lg:-translate-y-2/5 w-full h-auto animate-spin-slow"
-          src="/asset/images/flat-ring.png"
-          alt="Rotating"
-        /> */}
       </div>
       {isClient && (
         <motion.div
@@ -132,22 +105,91 @@ const HeroSection = () => {
             <div className="absolute inset-0 z-50 bg-gradient-to-t from-primary to-transparent pointer-events-none" />
 
             <img
-              src="/asset/images/nelum_kuluna-2.png"
-              className="w-[140%] h-full object-cover object-right "
+              src="/asset/images/night_victoria.jpg"
+              className="w-[140%] h-full object-cover object-right"
               alt="Nelum Kuluna"
             />
-          </div>
 
-          <div className="absolute top-[10%] -right-[39.52%] z-50 transform translate-x-1/2">
-            <img
-              src="/asset/images/nelumkuluna_mask.png"
-              className=""
-              alt="Nelum Kuluna"
-              style={{
-                transform: "scale(1.4)",
-                filter: colors[currentColorIndex],
-              }}
-            />
+            <div className="absolute bottom-[150px] 2xl:bottom-[280px] right-[20%] z-30  translate-x-1/2">
+              <img
+                src="/asset/images/nelum_mask2.png"
+                className="absolute w-[110px] 2xl:w-[200px] "
+                alt="Nelum Kuluna Mask"
+                style={{
+                  filter: colors[currentColorIndex],
+                }}
+              />
+              <img
+                src="/asset/images/lotus_tower3.png"
+                className="w-[110px] 2xl:w-[200px] z-30"
+                alt="Nelum Kuluna Mask"
+              />
+
+              <motion.img
+                src="/asset/images/light_beam.png"
+                className="absolute h-[600px] -bottom-4 opacity-30"
+                style={{
+                  transformOrigin: "center bottom",
+                  right: "40px",
+                }}
+                initial={{ rotate: 30 }}
+                animate={{ rotate: [30, 60, 30] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                alt="Light Beam"
+              />
+              <motion.img
+                src="/asset/images/light_beam.png"
+                className="absolute h-[660px] -bottom-4 -z-10 opacity-30"
+                style={{
+                  transformOrigin: "center bottom",
+                  right: "40px",
+                }}
+                initial={{ rotate: 60 }}
+                animate={{ rotate: [60, 30, 60] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                alt="Light Beam"
+              />
+              <motion.img
+                src="/asset/images/light_beam.png"
+                className="absolute h-[600px] -bottom-4 opacity-30"
+                style={{
+                  transformOrigin: "center bottom",
+                  right: "-40px",
+                }}
+                initial={{ rotate: 350 }}
+                animate={{ rotate: [330, 300, 330] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                alt="Light Beam"
+              />
+              <motion.img
+                src="/asset/images/light_beam.png"
+                className="absolute h-[660px] -bottom-4 -z-10 opacity-30"
+                style={{
+                  transformOrigin: "center bottom",
+                  right: "-40px",
+                }}
+                initial={{ rotate: 300 }}
+                animate={{ rotate: [300, 330, 300] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                alt="Light Beam"
+              />
+            </div>
           </div>
 
           {/* Fireworks aligned to tower at right-32 */}

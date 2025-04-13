@@ -140,3 +140,20 @@
 .bg-gray-800.bg-opacity-30 {
   background-color: rgba(31, 41, 55, 0.25);
 }
+
+@media (max-width: 768px) {
+  .mask-position {
+    right: calc(50% - 8vw) !important;
+    bottom: 38% !important;
+  }
+}
+
+@keyframes rotateBeam {
+  0%,
+  100% {
+    transform: rotate(160deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+}

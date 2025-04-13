@@ -155,7 +155,7 @@ const ServicesPage = () => {
           </button>
         </motion.div>
       </div>
-      <Spline scene="/spline/scene-14.splinecode" className="w-screen h-full" />
+
       <Footer />
     </div>
   );
