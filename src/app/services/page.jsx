@@ -89,13 +89,17 @@ const ServicesPage = () => {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-center mb-16 pt-28"
         >
-          <h2 className="text-5xl font-bold text-white">Our Services</h2>
+          <h2 className="text-7xl font-bold text-white">Our Services</h2>
           <p className="text-lg text-gray-300 mt-3 max-w-2xl mx-auto">
             We offer a comprehensive range of services to help businesses grow
             digitally. From stunning UI/UX design to robust web and mobile
             applications, we ensure high-quality solutions tailored to your
             needs.
           </p>
+          <Spline
+            scene="/spline/scene-18.splinecode"
+            className="w-screen h-full"
+          />
         </motion.div>
 
         {/* Services List */}
