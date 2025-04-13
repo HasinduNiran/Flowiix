@@ -17,6 +17,8 @@ import MobileDevImg from "../../../public/asset/images/p8.jpg";
 import CloudImg from "../../../public/asset/images/p8.jpg";
 import EcommerceImg from "../../../public/asset/images/p8.jpg";
 import SecurityImg from "../../../public/asset/images/p8.jpg";
+import Navigationbar from "@/src/components/Navbar";
+import Footer from "@/src/components/Footer";
 
 const services = [
   {
@@ -78,6 +80,7 @@ const services = [
 const ServicesPage = () => {
   return (
     <div className="bg-primary">
+      <Navigationbar />
       <div className="min-h-screen text-white pt-20 px-6 md:px-20">
         {/* Header Section */}
         <motion.div
@@ -149,6 +152,7 @@ const ServicesPage = () => {
         </motion.div>
       </div>
       <Spline scene="/spline/scene-14.splinecode" className="w-screen h-full" />
+      <Footer />
     </div>
   );
 };

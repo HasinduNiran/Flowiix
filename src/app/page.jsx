@@ -1,29 +1,49 @@
 "use client";
-import HeroSection from "../components/HeroSection";
+import dynamic from "next/dynamic";
 import Navbar from "../components/Navbar";
-import ServiceStats from "../components/serviceStats";
-import { throttle } from "lodash";
+import Loading from "../components/Loading";
 import React, { useState, useEffect } from "react";
-import TimelineDemo from "../components/StepsSection";
-import HeroParallaxDemo from "../components/OurWorksSection";
-import ServicesSection from "../components/ServicesSection";
-import AboutUsSection from "../components/AboutUsSection";
-import Footer from "../components/Footer";
+const HeroSection = dynamic(() => import("../components/HeroSection"), {
+  ssr: false,
+});
+
+const TimelineDemo = dynamic(() => import("../components/StepsSection"), {
+  ssr: false,
+});
+const HeroParallaxDemo = dynamic(
+  () => import("../components/OurWorksSection"),
+  {
+    ssr: false,
+  }
+);
+const ServicesSection = dynamic(() => import("../components/ServicesSection"), {
+  ssr: false,
+});
+const AboutUsSection = dynamic(() => import("../components/AboutUsSection"), {
+  ssr: false,
+});
+const Footer = dynamic(() => import("../components/Footer"), {
+  ssr: false,
+});
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  useEffect(() => {
-    const handleScroll = throttle(() => {
-      setIsScrolled(window.scrollY > 0);
-    }, 100);
+  const [isLoading, setIsLoading] = useState(true);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
   }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <div className="overflow-hidden bg-black">
       <div className="bg-primary w-screen  items-center justify-center ">
-        <Navbar isScrolled={isScrolled} />
+        <Navbar />
         <HeroSection />
         <ServicesSection />
         <TimelineDemo />
