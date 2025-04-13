@@ -1,0 +1,62 @@
+.first-view-container {
+  background-image: url('/asset/images/Fbg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.text-fill-image {
+  background-image: url('/asset/images/Ftext.png');
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: cover;
+  background-position: center;
+}
+
+.image-animation {
+  transition: transform 1.2s ease-out, opacity 1.2s ease-out;
+}
+
+.innovation-animation, .flowiix-animation {
+  transition: width 1.2s ease-out, opacity 1.2s ease-out;
+  overflow: hidden;
+}
+
+.welcome-text {
+  font-weight: bold;
+}
+
+
+.logo-animation {
+  transition: transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1s ease-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.logo-pulse {
+  animation: pulse 3s infinite alternate;
+}
+
+@media (max-width: 768px) {
+  .mobile-bottom-image {
+    height: auto !important;
+    max-height: 40vh !important;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .text-fill-image {
+    font-size: larger;
+    padding: 8px 12px;
+    letter-spacing: 0.5px;
+  }
+  
+ 
+}
