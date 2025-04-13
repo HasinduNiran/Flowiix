@@ -1,6 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useState } from "react";
+import { throttle } from "lodash";
+import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -20,8 +21,18 @@ const linkHoverVariants = {
   hovered: { y: 0 },
 };
 
-const Navigationbar = ({ isScrolled }) => {
+const Navigationbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = throttle(() => {
+      setIsScrolled(window.scrollY > 0);
+    }, 100);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <motion.nav
